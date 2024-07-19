@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Order Page</title>
-  <script src="https://bandwidth-commerce-72743.lightning.force.com/lightning/lightning.out.js"></script>
-  <script>
-    // Initialize Lightning Out
-    Lightning.use('c:orderWrapperApp', function() {
-      Lightning.createComponent('c:orderWrapper', {}, function(cmp) {
-        document.getElementById('myAuraComponent').appendChild(cmp);
-      });
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightning Out Example</title>
+    <!-- Include lightning.out.js from your Salesforce instance -->
+    <script src="https://bandwidth-commerce-72743.lightning.force.com/lightning/lightning.out.js"></script>
+    <script>
+        // Ensure the script is loaded before using the Lightning object
+        document.addEventListener("DOMContentLoaded", function() {
+            $Lightning.use("c:myApp", function() {
+                $Lightning.createComponent("c:myComponent", {}, "lightningContainer");
+            }, "https://bandwidth-commerce-72743.lightning.force.com");
+        });
+    </script>
 </head>
 <body>
-  <div id="myAuraComponent"></div>
+    <div id="lightningContainer"></div>
 </body>
 </html>
